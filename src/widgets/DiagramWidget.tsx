@@ -293,7 +293,11 @@ export class DiagramWidget extends React.Component<DiagramProps, DiagramState> {
 					}
 
 					var link = model.model.getLink();
-					if (link.isLastPoint(model.model)) {
+					if (
+						link.isLastPoint(model.model) &&
+            			(!(link.sourcePort instanceof PortModel) ||
+              				!(link.targetPort instanceof PortModel))
+					) {
 						link.remove();
 					}
 				});
