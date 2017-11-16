@@ -11,7 +11,7 @@ export interface BaseModelListener extends BaseListener {
 /**
  * @author Dylan Vorster
  */
-export class BaseModel<T extends BaseModelListener> extends BaseEntity<BaseModelListener> {
+export class BaseModel<T extends BaseModelListener> extends BaseEntity<T> {
 	selected: boolean;
 
 	constructor(id?: string) {
