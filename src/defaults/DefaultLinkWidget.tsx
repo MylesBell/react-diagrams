@@ -146,21 +146,6 @@ export class DefaultLinkWidget extends React.Component<
       paths.push(
         this.generateLink(
           {
-            onMouseDown: event => {
-              if (
-                !event.shiftKey &&
-                !this.props.diagramEngine.isModelLocked(this.props.link)
-              ) {
-                var point = new PointModel(
-                  this.props.link,
-                  this.props.diagramEngine.getRelativeMousePoint(event)
-                );
-                point.setSelected(true);
-                this.forceUpdate();
-                this.props.link.addPoint(point, 1);
-                this.props.pointAdded(point, event);
-              }
-            },
             d: this.generateLinePath(pointLeft, pointRight)
           },
           '0'
@@ -183,21 +168,6 @@ export class DefaultLinkWidget extends React.Component<
           {
             'data-linkid': this.props.link.id,
             'data-point': index,
-            onMouseDown: (event: MouseEvent) => {
-              if (
-                !event.shiftKey &&
-                !this.props.diagramEngine.isModelLocked(this.props.link)
-              ) {
-                var point = new PointModel(
-                  this.props.link,
-                  this.props.diagramEngine.getRelativeMousePoint(event)
-                );
-                point.setSelected(true);
-                this.forceUpdate();
-                this.props.link.addPoint(point, index + 1);
-                this.props.pointAdded(point, event);
-              }
-            },
             d: data
           },
           index
