@@ -342,7 +342,6 @@ export class DiagramWidget extends React.Component<DiagramProps, DiagramState> {
 				className="storm-diagrams-canvas"
 				onWheel={event => {
 					if (this.props.allowCanvasZoom) {
-						event.preventDefault();
 						event.stopPropagation();
 						const oldZoomFactor = diagramModel.getZoomLevel() / 100;
 						let scrollDelta = this.props.inverseZoom ? -event.deltaY: event.deltaY;
